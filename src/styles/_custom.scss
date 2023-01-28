@@ -1,0 +1,25 @@
+//COLOR THEME
+$grullo: #A59B8Eff;
+$davys-grey: #494F50ff;
+$rich-black-fogra-39: #040506ff;
+$pale-silver: #CDC3BDff;
+$sepia: #713E19ff;
+
+//MIXIN MEDIA QUERY
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+

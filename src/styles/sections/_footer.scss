@@ -1,0 +1,16 @@
+@use "../custom" as *;
+
+footer {
+    background-color: $davys-grey;
+    color: $pale-silver;
+    padding: 1rem;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+    @include tablet {
+        font-size: 1rem;
+        padding: 1.1rem;
+    }
+}

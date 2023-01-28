@@ -1,0 +1,29 @@
+@use "../custom" as *;
+
+.skip-content {
+    display: block;
+    background-color: $davys-grey;
+    z-index: 3;
+    width: 13rem;
+    padding: 1.5rem;
+    position: absolute;
+    top: 1.5rem;
+    left: -9999px;
+    font-family: "Noto Sans";
+    font-size: 1.2rem;
+    text-align: center;
+    color: $pale-silver;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: none;
+
+    &:visited {
+        color: $pale-silver;
+    }
+
+    &:focus {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}   

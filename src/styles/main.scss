@@ -1,0 +1,18 @@
+@use "reset";
+@use "custom";
+
+
+//IMPORT SECTIONS
+@use "sections/skip-content";
+@use "sections/navbar";
+@use "sections/hero-section";
+@use "sections/restaurant-item";
+@use "sections/main-section";
+@use "sections/restaurant-list";
+@use "sections/footer";
+
+//FONTAWESOME
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';

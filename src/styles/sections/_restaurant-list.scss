@@ -1,0 +1,16 @@
+@use "../custom" as *;
+
+restaurant-list {
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 1.5rem 5rem;
+        column-gap: 1.5rem;
+    }
+
+    @include desktop {
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 1.85rem 7rem;
+    }
+}
