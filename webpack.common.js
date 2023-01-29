@@ -22,16 +22,23 @@ module.exports = {
           'sass-loader',
         ],
       },
-      // {
-      //   test: /\.(png|svg|jpg|jpeg)$/i,
-      //   type: 'asset/resource',
-      // },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        dependency: {not: ['url']}, // tambah ini: cegah asset yang pake new url() ikut ke kompile sama asset module webpack
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+        type: 'javascript/auto', // tambah ini: cegah loader asset module webpack jalan dan pake loader sendiri
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
+      favicon: path.resolve(__dirname, 'src/public/images/logo.png'),
     }),
     new CopyWebpackPlugin({
       patterns: [
