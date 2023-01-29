@@ -8,6 +8,7 @@
     background-size: cover;
     z-index: 1;
     margin-bottom: 8rem;
+    background-image: url("../public/images/hero-image.jpg");
 
     @include desktop {
         height: 60vh;
