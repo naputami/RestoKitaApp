@@ -1,4 +1,3 @@
-import heroImg from '../../public/images/hero-image.jpg';
 class heroSection extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -6,7 +5,7 @@ class heroSection extends HTMLElement {
 
   render() {
     this.innerHTML = `
-            <div class="hero-container"  style="background-image: url('${heroImg}');">
+            <div class="hero-container">
                 <div class="hero-overlay">
                     <div class="hero-text">
                         <h1>Resto Kita</h1>
