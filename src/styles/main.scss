@@ -3,13 +3,17 @@
 
 
 //IMPORT SECTIONS
-@use "sections/skip-content";
-@use "sections/navbar";
-@use "sections/hero-section";
-@use "sections/restaurant-item";
 @use "sections/main-section";
-@use "sections/restaurant-list";
 @use "sections/footer";
+@use "sections/detail";
+@use "sections/favorites";
+
+//IMPORT ELEMENTS
+@use "elements/skip-content";
+@use "elements/navbar";
+@use "elements/restaurant-list";
+@use "elements/hero-section";
+@use "elements/restaurant-item";
 
 //FONTAWESOME
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 

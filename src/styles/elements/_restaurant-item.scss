@@ -64,6 +64,19 @@
             font-size: 1.2rem;
             color: $grullo;
 
+            a {
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    color: $davys-grey;
+                }
+
+                &:visited {
+                    color: inherit;
+                }
+            }
+
             @include tablet {
                 font-size: 1.35rem;
             }
