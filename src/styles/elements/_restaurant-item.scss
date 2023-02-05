@@ -61,28 +61,37 @@
         &__title {
             font-family: "Poppins";
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1.7rem;
             color: $grullo;
 
             a {
                 text-decoration: none;
                 color: inherit;
+                display: block;
+                height: min-content;
+                padding-top: 1.3rem;
+                margin-bottom: 0.7rem;
 
                 &:hover {
                     color: $davys-grey;
-                }
-
-                &:visited {
-                    color: inherit;
+                    text-decoration: underline;
                 }
             }
 
             @include tablet {
-                font-size: 1.35rem;
+                font-size: 1.8rem;
+
+                a {
+                    padding-top: 1rem;
+                }
             }
     
             @include desktop {
                 font-size: 1.5rem;
+
+                a {
+                    display: inline;
+                }
             }
         }
 
@@ -91,11 +100,10 @@
             font-weight: 500;
             font-size: 0.9rem;
             color: $rich-black-fogra-39;
-            margin-top: 0.4rem;
 
             @include tablet {
                 margin-top: 0.5rem;
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
     
             @include desktop {
@@ -113,11 +121,11 @@
             -webkit-box-orient: vertical;
             font-family: 'Noto Sans';
             line-height: 1.5;
-            font-size: 0.8rem;
+            font-size: 1rem;
 
             @include tablet {
                 margin-top: 0.65rem;
-                font-size: 0.9rem;
+                font-size: 1.1rem;
             }
     
             @include desktop {
