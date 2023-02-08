@@ -3,6 +3,7 @@
 main {
 
     scroll-margin-top: 8rem;
+    padding-bottom: 8rem;
 
 
     .main__title {
@@ -19,4 +20,9 @@ main {
             font-size: 1.8rem;
         }
     }
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
 }

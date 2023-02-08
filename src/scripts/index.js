@@ -10,6 +10,8 @@ import './views/elements/restaurant-list';
 import './views/elements/skip-content';
 import './views/elements/restaurant-info';
 import './views/templates/detail-template';
+import './views/elements/like-button';
+import './views/elements/liked-button';
 
 // IMPORT FONT AWESOME
 import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';

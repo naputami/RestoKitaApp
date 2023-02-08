@@ -14,6 +14,8 @@
 @use "elements/restaurant-list";
 @use "elements/hero-section";
 @use "elements/restaurant-item";
+@use "elements/like-unlike-button";
+@use "elements/spinner";
 
 //FONTAWESOME
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
