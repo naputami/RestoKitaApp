@@ -52,6 +52,20 @@ const createDetailTemplate = (restaurant) => `
             </div>`).join('')}
         </div>
     </div>
+    <div id="review-form">
+    <h4 class="subsection-title">Apa pendapatmu tentang restoran ini?</h4>
+    <form>
+      <div class="form-field">
+        <label for="inputName" class="form-field__label">Nama</label>
+        <input name="inputName" class="form-field__input type="text" id="inputName" require>
+      </div>
+      <div class="form-field">
+        <label for="inputReview" class="form-field__label">Ulasan</label>
+        <input name="inputReview" class="form-field__input type="text" id="inputReview" require>
+      </div>
+      <button type="submit" id="submit-review">Kirim</button>
+    </form>
+  </div>
 </section>
 
 `;

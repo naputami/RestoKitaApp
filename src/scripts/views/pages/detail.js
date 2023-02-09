@@ -2,6 +2,7 @@ import urlParser from '../../routes/url-parser';
 import restaurantDbSource from '../../data/restaurantdb-source';
 import createDetailTemplate from '../templates/detail-template';
 import spinner from '../templates/spinner-template';
+import postInputReview from '../../utils/post-review';
 
 const detail = {
   async render() {
@@ -20,6 +21,7 @@ const detail = {
 
   async afterRender() {
     const url = urlParser.parseActiveUrlWithoutCombiner();
+    console.log(url);
     const main = document.querySelector('.detail-main');
     const loading = document.querySelector('#loading');
     const restaurantElement = document.querySelector('#detail-content');
@@ -30,6 +32,7 @@ const detail = {
     try {
       const restaurant = await restaurantDbSource.detailRestaurant(url.id);
       restaurantElement.innerHTML = createDetailTemplate(restaurant.restaurant);
+      console.log(restaurant.restaurant.customerReviews);
       const likeButtonContainer = document.querySelector('#likeButtonContainer');
       likeButtonContainer.innerHTML = `<like-button>`;
       main.style.display = 'block';
@@ -39,6 +42,17 @@ const detail = {
       main.style.display = 'block';
       loading.style.display = 'none';
     }
+
+    const btnSubmit = document.querySelector('#submit-review');
+    const nameInput = document.querySelector('#inputName');
+    const reviewInput = document.querySelector('#inputReview');
+
+    btnSubmit.addEventListener('click', (event) => {
+      event.preventDefault();
+      postInputReview(url, nameInput.value, reviewInput.value);
+      nameInput.value = '';
+      reviewInput.value = '';
+    });
   },
 };
 

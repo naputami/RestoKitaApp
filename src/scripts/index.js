@@ -27,12 +27,9 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
-  setTimeout(function() {
-    document.querySelector('#main').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  }, 100);
+  document.querySelector('#main').scrollIntoView({
+    behavior: 'smooth',
+  });
   app.renderPage();
 });
 
