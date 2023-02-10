@@ -21,7 +21,6 @@ const detail = {
 
   async afterRender() {
     const url = urlParser.parseActiveUrlWithoutCombiner();
-    console.log(url);
     const main = document.querySelector('.detail-main');
     const loading = document.querySelector('#loading');
     const restaurantElement = document.querySelector('#detail-content');
@@ -32,7 +31,6 @@ const detail = {
     try {
       const restaurant = await restaurantDbSource.detailRestaurant(url.id);
       restaurantElement.innerHTML = createDetailTemplate(restaurant.restaurant);
-      console.log(restaurant.restaurant.customerReviews);
       const likeButtonContainer = document.querySelector('#likeButtonContainer');
       likeButtonContainer.innerHTML = `<like-button>`;
       main.style.display = 'block';

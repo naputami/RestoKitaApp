@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {InjectManifest} = require('workbox-webpack-plugin');
+
 
 module.exports = {
   entry: {
@@ -24,13 +26,13 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        dependency: {not: ['url']}, // tambah ini: cegah asset yang pake new url() ikut ke kompile sama asset module webpack
+        dependency: {not: ['url']},
         use: [
           {
             loader: 'file-loader',
           },
         ],
-        type: 'javascript/auto', // tambah ini: cegah loader asset module webpack jalan dan pake loader sendiri
+        type: 'javascript/auto',
       },
     ],
   },
@@ -45,8 +47,18 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/images/**'], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+          },
+        },
+        {
+          from: path.resolve(__dirname, 'src/scripts/sw.js'),
+          to: path.resolve(__dirname, 'dist'),
         },
       ],
+    }),
+    new InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
     }),
   ],
 };
