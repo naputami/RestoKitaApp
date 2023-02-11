@@ -2,35 +2,33 @@ import 'regenerator-runtime/runtime';
 import {precacheAndRoute} from 'workbox-precaching';
 import {cleanupOutdatedCaches} from 'workbox-precaching';
 import {registerRoute} from 'workbox-routing';
-import {CacheFirst, NetworkFirst} from 'workbox-strategies';
+import {CacheFirst, NetworkFirst, StaleWhileRevalidate} from 'workbox-strategies';
 import {ExpirationPlugin} from 'workbox-expiration';
-import {clientsClaim, setCacheNameDetails} from 'workbox-core';
+import {setCacheNameDetails} from 'workbox-core';
 
-self.skipWaiting();
-clientsClaim();
 
 setCacheNameDetails({
   prefix: 'resto-kita-app',
+  sufix: 'v1',
   precache: 'precache',
   runtime: 'runtime',
 });
 
-precacheAndRoute([
-  self.__WB_MANIFEST,
-  {
-    url: 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&family=Poppins:wght@400;500;600&family=Pacifico&display=swap',
-    revision: 1,
-  },
-], {
-  ignoreURLParametersMatching: [/.*/],
-},
+precacheAndRoute(self.__WB_MANIFEST || []);
+
+
+registerRoute(
+    ({request}) => request.mode === 'navigate',
+    new NetworkFirst({
+      cacheName: 'my-pages-cache',
+    }),
 );
 
 registerRoute(
     /^https:\/\/restaurant-api.dicoding.dev\/(?:(list|detail))/,
 
     new NetworkFirst({
-      cacheName: 'dicoding-restaurant-api',
+      cacheName: 'dicoding-restaurant-api-cache',
       plugins: [
         new ExpirationPlugin({
           maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
@@ -44,7 +42,7 @@ registerRoute(
 registerRoute(
     ({request}) => request.destination === 'image',
     new CacheFirst({
-      cacheName: 'images',
+      cacheName: 'images-cache',
       plugins: [
         new ExpirationPlugin({
           maxEntries: 60,
@@ -54,4 +52,29 @@ registerRoute(
     }),
 );
 
+registerRoute(
+    ({url}) =>
+      url.origin === 'https://fonts.googleapis.com',
+    new StaleWhileRevalidate({
+      cacheName: 'my-google-fonts-cache',
+      plugins: [new ExpirationPlugin({maxEntries: 50})],
+    }),
+);
+
+registerRoute(
+    ({request}) =>
+      request.destination === 'style' ||
+    request.destination === 'script' ||
+    request.destination === 'worker',
+    new StaleWhileRevalidate({
+      cacheName: 'my-assets-cache',
+    }),
+);
+
 cleanupOutdatedCaches();
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});

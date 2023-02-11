@@ -3,6 +3,8 @@ import restaurantDbSource from '../../data/restaurantdb-source';
 import createDetailTemplate from '../templates/detail-template';
 import spinner from '../templates/spinner-template';
 import postInputReview from '../../utils/post-review';
+import likeButtonInitiator from '../../utils/like-button-initiator';
+import favoriteRestoIdb from '../../data/favorite-restaurant-idb';
 
 const detail = {
   async render() {
@@ -29,10 +31,22 @@ const detail = {
 
 
     try {
-      const restaurant = await restaurantDbSource.detailRestaurant(url.id);
-      restaurantElement.innerHTML = createDetailTemplate(restaurant.restaurant);
-      const likeButtonContainer = document.querySelector('#likeButtonContainer');
-      likeButtonContainer.innerHTML = `<like-button>`;
+      const data = await restaurantDbSource.detailRestaurant(url.id);
+      restaurantElement.innerHTML = createDetailTemplate(data.restaurant);
+
+      likeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        favoriteRestaurants: favoriteRestoIdb,
+        restaurant: {
+          id: data.restaurant.id,
+          name: data.restaurant.name,
+          city: data.restaurant.city,
+          rating: data.restaurant.rating,
+          pictureId: data.restaurant.pictureId,
+          description: data.restaurant.description,
+        },
+      });
+
       main.style.display = 'block';
       loading.style.display = 'none';
     } catch (error) {

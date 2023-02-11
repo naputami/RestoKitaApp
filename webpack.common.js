@@ -48,7 +48,7 @@ module.exports = {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
           globOptions: {
-            ignore: ['**/images/**'], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+            ignore: ['**/images/**'],
           },
         },
         {
@@ -59,6 +59,7 @@ module.exports = {
     }),
     new InjectManifest({
       swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+      swDest: 'sw.js',
     }),
   ],
 };

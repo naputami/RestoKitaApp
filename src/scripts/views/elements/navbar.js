@@ -16,9 +16,9 @@ class navbar extends HTMLElement {
                     </div>
                 </div>
                 <ul class="menu-list">
-                    <li class="menu-item"><a href="#/home">Home</a></li>
-                    <li class="menu-item"><a href="#/favorites">Favorites</a></li>
-                    <li class="menu-item"><a href="https://github.com/naputami" target="blank_" rel="noopener">About Us</a></li>
+                    <li class="menu-item"><a href="#/home">Beranda</a></li>
+                    <li class="menu-item"><a href="#/favorites">Favorit</a></li>
+                    <li class="menu-item"><a href="https://github.com/naputami" target="blank_" rel="noopener">Profil Kami</a></li>
                 </ul>
             </nav>
         `;

@@ -19,6 +19,7 @@ import '../../node_modules/@fortawesome/fontawesome-free/js/all';
 
 // IMPORT APP
 import App from './views/app';
+// IMPORT SWREGISTER
 import swRegister from './utils/sw-register';
 
 const app = new App({
