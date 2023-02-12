@@ -1,7 +1,10 @@
+import {likedToast, unlikedToast} from '../views/templates/toast-template';
+
 const likeButtonInitiator = {
-  async init({likeButtonContainer, favoriteRestaurants, restaurant}) {
+  async init({likeButtonContainer, toastContainer, favoriteRestaurants, restaurant}) {
     this._likeButtonContainer = likeButtonContainer;
     this._favoriteRestaurants = favoriteRestaurants;
+    this._toastContainer = toastContainer;
     this._restaurant = restaurant;
 
     await this._renderButton();
@@ -29,6 +32,7 @@ const likeButtonInitiator = {
     likeButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.putRestaurant(this._restaurant);
       this._renderButton();
+      this._renderToastUnliked();
     });
   },
 
@@ -39,7 +43,18 @@ const likeButtonInitiator = {
     likedButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
       this._renderButton();
+      this._renderToastLiked();
     });
+  },
+
+  _renderToastLiked() {
+    this._toastContainer.innerHTML = unlikedToast();
+    setTimeout(() => document.querySelector('.toast').classList.add('hide'), 3000);
+  },
+
+  _renderToastUnliked() {
+    this._toastContainer.innerHTML = likedToast();
+    setTimeout(() => document.querySelector('.toast').classList.add('hide'), 3000);
   },
 };
 

@@ -14,11 +14,12 @@ class restaurantDbSource {
     const response = await fetch(API_ENPOINT.POST_REVIEW, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/JSON',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-    return response;
+    const responseJson = await response.json();
+    return responseJson;
   }
 }
 export default restaurantDbSource;

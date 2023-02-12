@@ -1,6 +1,6 @@
 @use "reset";
 @use "custom";
-
+@use "typography";
 
 //IMPORT SECTIONS
 @use "sections/main-section";
@@ -16,6 +16,7 @@
 @use "elements/restaurant-item";
 @use "elements/like-unlike-button";
 @use "elements/spinner";
+@use "elements/toast";
 
 //FONTAWESOME
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 

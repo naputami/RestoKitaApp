@@ -17,9 +17,10 @@ class restaurantItem extends HTMLElement {
                     </div>
                 </div>
                 <div class="item-content">
-                    <h2 class="item-content__title"><a href="/#/detail/${this._restaurant.id}">${this._restaurant.name}</a></h2>
-                    <p class="item-content__city">City: ${this._restaurant.city}</p>
+                    <h2 class="item-content__title">${this._restaurant.name}</h2>
+                    <p class="item-content__city">Kota: ${this._restaurant.city}</p>
                     <p class="item-content__desc">${this._restaurant.description}</p>
+                    <a href="/#/detail/${this._restaurant.id}" class="item-content__readMore" aria-label="read more">Baca selengkapnya&nbsp;<i class="fa-solid fa-angles-right"></i></a>
                 </div>
             </article>
         `;

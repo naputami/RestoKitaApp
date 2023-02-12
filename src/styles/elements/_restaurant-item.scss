@@ -61,37 +61,17 @@
         &__title {
             font-family: "Poppins";
             font-weight: 600;
-            font-size: 1.7rem;
+            font-size: 1.3rem;
             color: $grullo;
+            margin-bottom: 0.5rem;
 
-            a {
-                text-decoration: none;
-                color: inherit;
-                display: block;
-                height: min-content;
-                padding-top: 1.3rem;
-                margin-bottom: 0.7rem;
-
-                &:hover {
-                    color: $davys-grey;
-                    text-decoration: underline;
-                }
-            }
 
             @include tablet {
-                font-size: 1.8rem;
-
-                a {
-                    padding-top: 1rem;
-                }
+                font-size: 1.4rem;
             }
     
             @include desktop {
                 font-size: 1.5rem;
-
-                a {
-                    display: inline;
-                }
             }
         }
 
@@ -103,7 +83,7 @@
 
             @include tablet {
                 margin-top: 0.5rem;
-                font-size: 1.3rem;
+                font-size: 1rem;
             }
     
             @include desktop {
@@ -121,16 +101,33 @@
             -webkit-box-orient: vertical;
             font-family: 'Noto Sans';
             line-height: 1.5;
-            font-size: 1rem;
+            font-size: 0.8rem;
 
             @include tablet {
                 margin-top: 0.65rem;
-                font-size: 1.1rem;
+                font-size: 0.9rem;
             }
     
             @include desktop {
                 font-size: 1rem;
                 margin-top: 0.7rem;
+            }
+        }
+
+        &__readMore {
+            display: block;
+            text-decoration: none;
+            background-color: $grullo;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Poppins';
+            color: $rich-black-fogra-39;
+            text-align: center;
+            border-radius: 0.8rem;
+
+            &:hover {
+                background-color: $davys-grey;
+                color: $pale-silver;
             }
         }
     }

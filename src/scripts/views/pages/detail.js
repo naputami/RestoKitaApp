@@ -12,9 +12,10 @@ const detail = {
       <div class="container">
         <div id="loading"></div>
         <div class="detail-main">
-          <h3 class="detail-main__title">Informasi Restoran</h3>
+          <h2 class="page-title">Informasi Restoran</h2>
           <div id="detail-content"></div>
         </div>
+        <div id="toast-container"></div>
         <div id="likeButtonContainer"></div>
       </div>
          
@@ -37,6 +38,7 @@ const detail = {
       likeButtonInitiator.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
         favoriteRestaurants: favoriteRestoIdb,
+        toastContainer: document.querySelector('#toast-container'),
         restaurant: {
           id: data.restaurant.id,
           name: data.restaurant.name,
@@ -50,7 +52,7 @@ const detail = {
       main.style.display = 'block';
       loading.style.display = 'none';
     } catch (error) {
-      restaurantElement.innerHTML = `<p class="main__title">Gagal Memuat Halaman. Mohon refresh halaman ini!</p>`;
+      restaurantElement.innerHTML = `<p class="warning-message">Gagal Memuat Halaman. Mohon refresh halaman ini!</p>`;
       main.style.display = 'block';
       loading.style.display = 'none';
     }
@@ -61,6 +63,10 @@ const detail = {
 
     btnSubmit.addEventListener('click', (event) => {
       event.preventDefault();
+      if (nameInput.value === '' || reviewInput.value === '') {
+        alert('Nama dan ulasan harus diisi!');
+        return;
+      }
       postInputReview(url, nameInput.value, reviewInput.value);
       nameInput.value = '';
       reviewInput.value = '';

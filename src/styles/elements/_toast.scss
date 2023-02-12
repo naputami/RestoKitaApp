@@ -1,0 +1,32 @@
+@use "../custom" as *;
+
+.toast {
+    background-color: $rich-black-fogra-39;
+    bottom: 5rem;
+    position: fixed;
+    z-index: 3;
+    right: 16px;
+    opacity: 100%;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease-out;
+
+    .text {
+        color: white;
+        font-family: 'Noto Sans';
+        font-size: 0.8rem;
+
+        @include tablet {
+            font-size: 1rem;
+        }
+
+        @include desktop {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.hide {
+    opacity: 0%;
+    right: -500px;
+}

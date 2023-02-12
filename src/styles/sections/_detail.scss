@@ -1,25 +1,5 @@
 @use "../custom" as *;
 
-.detail-main {
-
-    &__title {
-        text-align: center;
-        font-family: "Poppins";
-        font-weight: 600;
-        color: $rich-black-fogra-39;
-        margin-bottom: 3rem;
-        font-size: 1.5rem;
-
-        @include tablet {
-            font-size: 1.5rem;
-        }
-
-        @include desktop {
-            font-size: 1.8rem;
-        }
-    }
-}
-
 
 .info-container {
     width: 80%;
@@ -242,55 +222,19 @@
 
             min-height: 3rem;
             min-width: 5rem;
-            background-color: $davys-grey;
-            color: $pale-silver;
+            background-color: $grullo;
+            color: $rich-black-fogra-39;
             font-family: 'Poppins';
             font-size: 1rem;
             border: none;
             border-radius: 0.8rem;
 
             &:hover {
-                background-color: $grullo;
-                color: $davys-grey;
+                background-color: $davys-grey;
+                color: $pale-silver;
                 cursor: pointer;
             }
         }
     }
     
-}
-
-//TYPOGRAPHY
-
-.subsection-title {
-  
-    font-size: 1rem;
-    font-family: 'Poppins';
-    color: $davys-grey;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 1rem;
-
-    @include tablet {
-        font-size: 1.3rem;
-        margin-bottom: 1.2rem;
-    }
-
-    @include desktop {
-        font-size: 1.7rem;
-    }
-    
-}
-
-.info-text {
-
-    font-family: 'Noto Sans';
-    font-size: 0.9rem;
-
-    @include tablet {
-        font-size: 1.1rem;
-    }
-
-    @include desktop {
-        font-size: 1.3rem;
-    }
 }
