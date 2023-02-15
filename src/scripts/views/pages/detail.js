@@ -65,11 +65,11 @@ const detail = {
       event.preventDefault();
       if (nameInput.value === '' || reviewInput.value === '') {
         alert('Nama dan ulasan harus diisi!');
-        return;
+      } else {
+        postInputReview(url, nameInput.value, reviewInput.value);
+        nameInput.value = '';
+        reviewInput.value = '';
       }
-      postInputReview(url, nameInput.value, reviewInput.value);
-      nameInput.value = '';
-      reviewInput.value = '';
     });
   },
 };
