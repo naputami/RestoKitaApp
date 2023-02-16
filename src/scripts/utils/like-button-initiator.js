@@ -31,7 +31,7 @@ const likeButtonInitiator = {
     const likeButton = document.querySelector('like-button');
     likeButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.putRestaurant(this._restaurant);
-      this._renderButton();
+      await this._renderButton();
       this._renderToastUnliked();
     });
   },
@@ -42,7 +42,7 @@ const likeButtonInitiator = {
     const likedButton = document.querySelector('liked-button');
     likedButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
-      this._renderButton();
+      await this._renderButton();
       this._renderToastLiked();
     });
   },
