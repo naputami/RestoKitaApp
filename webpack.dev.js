@@ -17,4 +17,11 @@ module.exports = merge(common, {
     },
     compress: true,
   },
+  stats: {
+    warningsFilter: [
+      'InjectManifest',
+    ],
+    modules: false,
+    colors: true,
+  },
 });

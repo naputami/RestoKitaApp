@@ -1,6 +1,7 @@
 const common = require('./webpack.common');
 const {merge} = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -25,6 +26,8 @@ module.exports = merge(common, {
     new BundleAnalyzerPlugin(),
   ],
   optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
