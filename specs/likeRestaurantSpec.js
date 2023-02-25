@@ -1,18 +1,24 @@
+import {async} from 'regenerator-runtime';
 import favoriteRestoIdb from '../src/scripts/data/favorite-restaurant-idb';
 import * as testFactories from './helpers/testFactories';
 
 describe('Liking A Restaurant', () => {
-  const addLikeButtonContainer = () => {
-    document.body.innerHTML = '<div id="likeButtonContainer"></div>';
+  const addLikeButtonandToastContainer = () => {
+    document.body.innerHTML = '<div id="likeButtonContainer"></div><div id="toast-container"></div>';
   };
   beforeEach(() => {
-    addLikeButtonContainer();
+    addLikeButtonandToastContainer();
   });
 
   it('Should show the like button when the restaurant has not been liked before', async () => {
     await testFactories.createLikeButtonPresenterwithRestaurant({id: 1});
 
     expect(document.querySelector('like-button')).toBeTruthy();
+  });
+  it('Should not show toast when the like button not clicked', async () => {
+    await testFactories.createLikeButtonPresenterwithRestaurant({id: 1});
+
+    expect(document.querySelector('.toast')).toBeFalsy();
   });
   it('Should not show the unlike button when the restaurant has not been liked before', async () => {
     await testFactories.createLikeButtonPresenterwithRestaurant({id: 1});

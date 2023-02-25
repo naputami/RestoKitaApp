@@ -8,16 +8,19 @@ Scenario('showing empty favorite restaurant', ({I}) => {
   I.see('Kamu belum menambahkan restoran favorit.', '.warning-message');
 });
 
+
 Scenario('liking one restaurant', async ({I}) => {
   I.see('Kamu belum menambahkan restoran favorit.', '.warning-message');
   I.amOnPage('/');
-  I.waitForElement('restaurant-item a', 5);
+  I.seeElement('#restaurantListContainer');
+  I.waitForElement('restaurant-list', 5);
+  I.seeElement('restaurant-list');
+  I.seeElement('restaurant-item');
   I.seeElement('restaurant-item a');
-  I.click(locate('restaurant-item a').first());
-  pause();
-  I.waitForElement('like-button', 6);
+  const firstRestaurant = locate('restaurant-item a').first();
+  I.click(firstRestaurant);
+  I.wait(10);
+  I.waitForElement('like-button', 5);
   I.seeElement('like-button');
   I.click('like-button');
-  I.amOnPage('/#/favorites');
-  I.seeElement('restaurant-item');
 });

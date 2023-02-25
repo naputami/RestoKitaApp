@@ -4,7 +4,7 @@ import favoriteRestoIdb from '../src/scripts/data/favorite-restaurant-idb';
 
 describe('Unliking a restaurant', ()=> {
   const addLikeButtonContainer = () => {
-    document.body.innerHTML = '<div id="likeButtonContainer"></div>';
+    document.body.innerHTML = '<div id="likeButtonContainer"></div><div id="toast-container"></div>';
   };
   beforeEach(async () => {
     addLikeButtonContainer();

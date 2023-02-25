@@ -4,7 +4,7 @@ const createDetailTemplate = (restaurant) => `
 <section class="info-container">
     <div class="info-media">
         <div class="info-media__img">
-            <img src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="suasana di ${restaurant.name}">
+            <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="suasana di ${restaurant.name}">
         </div>
         <div class= "info-media__content">
             <h3>${restaurant.name}</h3>

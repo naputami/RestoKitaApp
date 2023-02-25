@@ -1,4 +1,5 @@
 import logoImg from '../../../public/images/logo.png';
+import logoImgSmall from '../../../public/images/resized/logo-small.png';
 class navbar extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -9,7 +10,10 @@ class navbar extends HTMLElement {
             <nav class="nav">
                 <div class="menu-mobile">
                     <div class="logo">
-                        <img src="${logoImg}" alt="logo">
+                        <picture>
+                            <source media="(max-width: 600px)" srcset="${logoImgSmall}">
+                            <img src="${logoImg}" alt="logo">
+                        </picture>
                     </div>
                     <div class="hamburger-container">
                         <a id="hamburger" href="#" aria-label="toggle drawer">☰</a>

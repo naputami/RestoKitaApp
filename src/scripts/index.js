@@ -17,10 +17,17 @@ import './views/elements/liked-button';
 import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 import '../../node_modules/@fortawesome/fontawesome-free/js/all';
 
+// IMPORT LAZYSIZES
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
 // IMPORT APP
 import App from './views/app';
 // IMPORT SWREGISTER
 import swRegister from './utils/sw-register';
+
+const START = 10;
+const NUMBER_OF_IMAGES = 100;
 
 const app = new App({
   button: document.querySelector('#hamburger'),

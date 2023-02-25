@@ -8,7 +8,11 @@
     background-size: cover;
     z-index: 1;
     margin-bottom: 8rem;
-    background-image: url("../public/images/hero-image.jpg");
+    background-image: url("../public/images/resized/hero-image-small.jpg");
+
+    @include tablet {
+        background-image: url("../public/images/resized/hero-image-large.jpg");
+    }
 
     @include desktop {
         height: 60vh;
