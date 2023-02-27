@@ -4,7 +4,15 @@ const createDetailTemplate = (restaurant) => `
 <section class="info-container">
     <div class="info-media">
         <div class="info-media__img">
-            <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="suasana di ${restaurant.name}">
+            <picture>
+            <source srcset="${CONFIG.BASE_IMAGE_URL.small}/${restaurant.pictureId}" type="image/webp" media="all and (max-width: 600px)" />        
+            <source srcset="${CONFIG.BASE_IMAGE_URL.small}/${restaurant.pictureId}" type="image/jpeg" media="all and (max-width: 600px)" />
+            <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${restaurant.pictureId}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />    
+            <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${restaurant.pictureId}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
+            <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" type="image/webp" media="all and (min-width: 961px)" />        
+            <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" type="image/jpeg" media="all and (min-width: 961px)" />
+            <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" alt="suasana di ${restaurant.name}">
+            </picture>
         </div>
         <div class= "info-media__content">
             <h3>${restaurant.name}</h3>
