@@ -1,6 +1,6 @@
-import {async} from 'regenerator-runtime';
 import favoriteRestoIdb from '../src/scripts/data/favorite-restaurant-idb';
 import * as testFactories from './helpers/testFactories';
+
 
 describe('Liking A Restaurant', () => {
   const addLikeButtonandToastContainer = () => {

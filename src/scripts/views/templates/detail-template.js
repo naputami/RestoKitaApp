@@ -11,7 +11,7 @@ const createDetailTemplate = (restaurant) => `
             <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${restaurant.pictureId}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
             <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" type="image/webp" media="all and (min-width: 961px)" />        
             <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" type="image/jpeg" media="all and (min-width: 961px)" />
-            <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" alt="suasana di ${restaurant.name}">
+            <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL.large}/${restaurant.pictureId}" alt="suasana di ${restaurant.name}">
             </picture>
         </div>
         <div class= "info-media__content">

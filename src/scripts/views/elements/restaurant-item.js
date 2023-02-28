@@ -10,7 +10,7 @@ class restaurantItem extends HTMLElement {
             <article class="item-container">
                 <div class="item-media">
                     <div class="item-media__img">
-                        <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL.small}/${this._restaurant.pictureId}" alt="suasana di ${this._restaurant.name}">
+                        <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL.small}/${this._restaurant.pictureId}" alt="suasana di ${this._restaurant.name}">
                     </div>
                     <div class="item-media__rating">
                         <p>${this._restaurant.rating}<span><i class="fa-solid fa-star"></i></span></p>
