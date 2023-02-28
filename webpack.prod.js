@@ -1,7 +1,9 @@
+const path = require('path');
 const common = require('./webpack.common');
 const {merge} = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -27,6 +29,19 @@ module.exports = merge(common, {
       analyzerMode: 'disabled',
       generateStatsFile: true,
       statsOptions: {source: false},
+    }),
+    new HtmlCriticalWebpackPlugin({
+      base: path.resolve(__dirname, 'dist'),
+      src: 'index.html',
+      dest: 'index.html',
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      },
     }),
   ],
   optimization: {
