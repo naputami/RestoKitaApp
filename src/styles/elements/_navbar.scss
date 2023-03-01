@@ -22,16 +22,16 @@
     
             img {
                 width: 5rem;
-                height: 4rem;
+                height: 3.57rem;
 
                 @include tablet {
                     width: 6rem;
-                    height: 5rem;
+                    height: 4.285rem;
                 }
 
                 @include desktop {
                     width: 6.5rem;
-                    height: 5.3rem;
+                    height: 4.64rem;
                 }
             }
         }
