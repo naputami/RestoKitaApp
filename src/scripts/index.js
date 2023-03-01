@@ -14,8 +14,9 @@ import './views/elements/like-button';
 import './views/elements/liked-button';
 
 // IMPORT FONT AWESOME
-import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
-import '../../node_modules/@fortawesome/fontawesome-free/js/all';
+import '../../node_modules/@fortawesome/fontawesome-free/js/fontawesome';
+import '../../node_modules/@fortawesome/fontawesome-free/js/solid';
+import '../../node_modules/@fortawesome/fontawesome-free/js/regular';
 
 // IMPORT LAZYSIZES
 import 'lazysizes';

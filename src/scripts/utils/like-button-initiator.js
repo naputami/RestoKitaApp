@@ -49,12 +49,12 @@ const likeButtonInitiator = {
 
   _renderToastLiked() {
     this._toastContainer.innerHTML = unlikedToast();
-    setTimeout(() => document.querySelector('.toast').classList.add('hide'), 3000);
+    setTimeout(() => document.querySelector('.toast').classList.add('hide'), 1500);
   },
 
   _renderToastUnliked() {
     this._toastContainer.innerHTML = likedToast();
-    setTimeout(() => document.querySelector('.toast').classList.add('hide'), 3000);
+    setTimeout(() => document.querySelector('.toast').classList.add('hide'), 1500);
   },
 };
 
